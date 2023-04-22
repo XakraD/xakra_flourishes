@@ -95,7 +95,7 @@ RegisterCommand("flourishes", function(source, args, rawCommand)
 	end
 
     Wait(500)
-    if Citizen.InvokeNative(0xCF9B71C0AF824036, PlayerPedId(), -1) then
+    if Citizen.InvokeNative(0xCF9B71C0AF824036, PlayerPedId(), -1) then -- IsEmoteTaskRunning
         Citizen.InvokeNative(0x01F661BB9C71B465, PlayerPedId(), 0, Citizen.InvokeNative(0xF4601C1203B1A78D, ActiveEmote, 0))  -- SetActiveGunSpinningKitEmoteTwirl, GetWeaponGunSpinningWeaponEmoteTrickTypeHash
         Citizen.InvokeNative(0x01F661BB9C71B465, PlayerPedId(), 1, Citizen.InvokeNative(0xF4601C1203B1A78D, ActiveEmote, 1))  -- SetActiveGunSpinningKitEmoteTwirl, GetWeaponGunSpinningWeaponEmoteTrickTypeHash
         Citizen.InvokeNative(0x01F661BB9C71B465, PlayerPedId(), 2, Citizen.InvokeNative(0xF4601C1203B1A78D, ActiveEmote, 2))  -- SetActiveGunSpinningKitEmoteTwirl, GetWeaponGunSpinningWeaponEmoteTrickTypeHash
@@ -105,7 +105,7 @@ RegisterCommand("flourishes", function(source, args, rawCommand)
         Citizen.InvokeNative(0x01F661BB9C71B465, PlayerPedId(), 6, Citizen.InvokeNative(0xF4601C1203B1A78D, ActiveEmote, 6))  -- SetActiveGunSpinningKitEmoteTwirl, GetWeaponGunSpinningWeaponEmoteTrickTypeHash
     end
 
-    while Citizen.InvokeNative(0xCF9B71C0AF824036, PlayerPedId(), -1) do
+    while Citizen.InvokeNative(0xCF9B71C0AF824036, PlayerPedId(), -1) do    -- IsEmoteTaskRunning
         Wait(0)
         local label = CreateVarString(10, 'LITERAL_STRING', GetLabelTextByHash(GetHashKey('KIT_EMOTE_TWIRL_GUN_HOLD')))
         PromptSetActiveGroupThisFrame(Flourishes, label)
